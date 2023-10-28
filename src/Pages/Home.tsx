@@ -10,31 +10,36 @@ function Home() {
   const [index, setIndex] = useState(0);
   const sodaData = SodaData;
 
+  const handleScrollOnWheel = (e: any) => {
+    if (e.deltaY < 0) {
+      handleSwitch("left");
+    } else {
+      handleSwitch("right");
+    }
+  }
+
   const handleSwitch = (switchMode: string) => {
 
     if (switchMode === 'right') {
-      if (index === 0) {
-        sodaData[index].imgTransitionStatus = 'sodaImgExit';
-        sodaData[sodaData.length - 1].imgTransitionStatus = 'sodaImgEnter';
-        setIndex(SodaData.length - 1);
-      } else {
-        setIndex(index - 1)
-      }
+      sodaData[index].imgTransitionStatus = 'sodaImgExit';
+      sodaData[index - 1].imgTransitionStatus = 'sodaImgEnter';
+      SodaData[index].textTransitionStatus = 'sodaTextDownExit';
+      SodaData[index - 1].textTransitionStatus = 'sodaTextEnter';
+      setIndex(index - 1)
     } else {
-      if (index === SodaData.length - 1) {
-        sodaData[index].imgTransitionStatus = 'sodaImgExit';
-        sodaData[0].imgTransitionStatus = 'sodaImgEnter';
-        setIndex(0)
-      } else {
-        setIndex(index + 1)
-      }
 
+      sodaData[index].imgTransitionStatus = 'sodaImgExit';
+      sodaData[index + 1].imgTransitionStatus = 'sodaImgEnter';
+      SodaData[index].textTransitionStatus = 'sodaTextUpExit';
+      SodaData[index + 1].textTransitionStatus = 'sodaTextEnter';
+      setIndex(index + 1)
     }
 
   }
 
+
   return (
-    <div className='homePage' style={{ '--bgColour': sodaData[index].bgColour } as never}>
+    <div className='homePage' style={{ '--bgColour': sodaData[index].bgColour } as never} onWheel={handleScrollOnWheel}>
       <NavBar />
 
       {/* <div className='switchBtn'>
@@ -47,11 +52,12 @@ function Home() {
         return (
 
           <div className='sodaProducts'>
-            <div className="content">
-              <h1>Mango Soda Drink</h1>
-              <h3>$2.99</h3>
+            <div className={"content " + soda.textTransitionStatus}>
+              {/* <div className={"content "}> */}
+              <h1>{soda.title}</h1>
+              <h3>${soda.price} ea</h3>
               <button>Add To Cart</button>
-              <p>Mango soda is a vibrant, aromatic, and refreshingly fizzy carbonated beverage that captures the sweet and tangy essence of ripe mangoes. With its inviting orange-yellow color and a delightful aroma reminiscent of fresh mangoes, the taste of mango soda is a perfect harmony of natural sweetness and carbonated fizz, creating a thirst-quenching and tropical flavor profile. Served chilled with ice or garnished with a slice of mango, this versatile drink is a popular choice for a wide range of occasions, making it a go-to refreshment for outdoor gatherings and a delightful companion to spicy cuisines. Whether in bottled, canned, or fountain form, mango soda offers a delightful way to savor the delicious taste of mango while staying cool and refreshed.</p>
+              <p>{soda.breif}</p>
             </div>
 
 

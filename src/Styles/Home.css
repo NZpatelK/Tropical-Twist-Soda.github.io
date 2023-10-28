@@ -15,18 +15,7 @@
     z-index: -999999;
 }
 
-.homePage::before {
-    content: '';
-    width: 1000px;
-    height: 1000px;
-    top: 55%;
-    left:40%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    position: absolute;
-    /* z-index: 0; */
-    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.39), transparent 50%);
-}
+
 
 .switchBtn{
     position: absolute;
@@ -53,6 +42,7 @@
 }
 
 .sodaProducts{ 
+    position: absolute;
     font-family: Poppins, sans-serif;
     width: 100%;
     height: 100%;
@@ -64,7 +54,21 @@
 .sodaProducts .content {
     margin-left:  60px;
     width: 30%;
+    transition: all 0.8s ease-in-out;
 }
+
+/* .sodaProducts .content::before {
+    content: '';
+    width: 1000px;
+    height: 1000px;
+    top: 55%;
+    left:40%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.184), transparent 50%);
+} */
 
 .sodaProducts .content h1 {
     font-size: calc(1.8rem + 1vw);
@@ -89,13 +93,35 @@
     margin-bottom: 20px;
 }
 
+.sodaProducts h3{
+    font-size: calc(1rem + 0.5vw);
+    font-weight: 500;
+    color: #000000;
+}
+
 .sodaProducts .content p {
-    font-size: calc(0.5rem + 0.5vw);
+    font-size: calc(0.8rem + 0.5vw);
     font-weight: 300;
     color: #000000;
     line-height: 1.2;
     text-align: justify;
     margin-bottom: 20px;
+}
+
+.sodaTextEnter{
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s;
+}
+
+.sodaTextDownExit{
+    opacity: 0;
+    transform: translateY(200%);
+}
+
+.sodaTextUpExit{
+    opacity: 0;
+    transform: translateY(-150%);
 }
 
 .bgLogo::before {
