@@ -2,6 +2,7 @@ import '../Styles/Home.css'
 import NavBar from './NavBar';
 import { SodaData } from '../Data/SodaData';
 import { useState } from 'react';
+import brand from '../assets/brand.png'
 import left from '../assets/back-button.png'
 import right from '../assets/right.png'
 
@@ -54,6 +55,7 @@ function Home() {
           <div className='sodaProducts'>
             <div className={"content " + soda.textTransitionStatus}>
               {/* <div className={"content "}> */}
+              <img src={brand} alt="" />
               <h1>{soda.title}</h1>
               <h3>${soda.price} ea</h3>
               <button>Add To Cart</button>
