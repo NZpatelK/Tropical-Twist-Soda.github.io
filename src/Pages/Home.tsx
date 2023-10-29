@@ -5,6 +5,7 @@ import { useState } from 'react';
 import brand from '../assets/brand.png'
 import left from '../assets/back-button.png'
 import right from '../assets/right.png'
+import down from '../assets/down-arrow.png'
 
 function Home() {
 
@@ -21,7 +22,7 @@ function Home() {
 
   const handleSwitch = (switchMode: string) => {
 
-    if (switchMode === 'right') {
+    if (switchMode === 'left') {
       sodaData[index].imgTransitionStatus = 'sodaImgExit';
       sodaData[index - 1].imgTransitionStatus = 'sodaImgEnter';
       SodaData[index].textTransitionStatus = 'sodaTextDownExit';
@@ -71,6 +72,13 @@ function Home() {
           </div>
         )
       })}
+
+
+      <div className="scrolldownIcon">
+        <h1>Scroll down</h1>
+        <h1>for flavours</h1>
+        <img src={down} alt="" />
+      </div>
 
 
     </div >

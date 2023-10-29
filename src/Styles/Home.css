@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .homePage {
     background: var(--bgColour);
@@ -67,7 +67,8 @@
 .sodaProducts .content {
     margin-left: 60px;
     width: 30%;
-    transition: all 0.8s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    z-index: 9999;
 }
 
 .sodaProducts .content h1 {
@@ -78,8 +79,9 @@
 }
 
 .sodaProducts .content button {
+    position:relative;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 900;
     color: #000000;
     line-height: 1.2;
     text-align: center;
@@ -91,6 +93,7 @@
     transform: scale(1);
     transition: all 0.3s ease-in-out;
     margin: 15px 0;
+    z-index: 9999;
 }
 
 .sodaProducts .content button:hover {
@@ -115,27 +118,29 @@
     margin: 10px 0;
 }
 
-.content img {
+.sodaProducts .content img {
+    position: relative;
     width: calc(40% + 60px);
-    object-fit: contain;
+    height: auto;       
     transform: translateX(-20px);
     filter: saturate(5) brightness(1);
+    z-index: -9999;
 }
 
 .sodaTextEnter {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 1s;
+    transition-delay: 0.5s !important;
 }
 
 .sodaTextDownExit {
     opacity: 0;
-    transform: translateY(200%);
+    transform: translateY(50%);
 }
 
 .sodaTextUpExit {
     opacity: 0;
-    transform: translateY(-150%);
+    transform: translateY(-50%);
 }
 
 .bgLogo::before {
@@ -160,7 +165,7 @@
     left: 50%;
     width: 100%;
     height: 100vh;
-    transition: all 0.8s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 .sodaProd {
@@ -168,7 +173,7 @@
     top: 10%;
     width: 100%;
     height: 100%;
-    transition: all 0.8s ease-in-out;
+    transition: all 1s ease-in-out;
 
 }
 
@@ -187,7 +192,7 @@
     left: 0%;
     transform: translate(-38%, -30%) scale(1);
     background: var(--sodaBgImg);
-    transition: all 0.8s ease-in-out;
+    transition: all 1s ease-in-out;
     z-index: 0;
 }
 
@@ -200,7 +205,7 @@
     left: 0%;
     transform: translate(-38%, -30%) scale(0);
     background: var(--sodaBgImg);
-    transition: all 0.8s ease-in-out;
+    transition: all 1s ease-in-out;
     z-index: 0;
 }
 
@@ -209,14 +214,47 @@
 }
 
 
+.scrolldownIcon{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: scrollDown 1s infinite;
+}
 
-
-
-
-
-/* h1{
-    font-family: 'The Amsterdam', sans-serif;
-    font-size: 100px;
-    letter-spacing: 2px;
+.scrolldownIcon h1 {
+    font-size: 12px;
+    font-weight: 400;
     color: #ffffff;
-} */
+    font-family: poppins, sans-serif;
+    margin: 0;
+    margin-top: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.scrolldownIcon img{
+    width: 40px;
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
