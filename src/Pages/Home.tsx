@@ -53,18 +53,17 @@ function Home() {
       {sodaData.map((soda) => {
         return (
 
-          <div className='sodaProducts'>
+          <div className='sodaProductsDisplay'>
             <div className={"content " + soda.textTransitionStatus}>
-              {/* <div className={"content "}> */}
-              <img src={brand} alt="" />
-              <h1>{soda.title}</h1>
-              <h3>${soda.price} ea</h3>
+              <img className='brandLogo' src={brand} alt="" />
+              <h1 className='title'>{soda.title}</h1>
+              <h3 className='price'>${soda.price} ea</h3>
               <button>Add To Cart</button>
-              <p>{soda.breif}</p>
+              <p className='brief'>{soda.breif}</p>
             </div>
 
 
-            <div className='bgLogo'>
+            <div className='imageContent'>
               <div className={"sodaProd " + soda.imgTransitionStatus} style={{ '--sodaBgImg': `url(${soda.bgImg}) no-repeat center center/cover` } as never}>
                 <img src={soda.img} alt="" />
               </div>

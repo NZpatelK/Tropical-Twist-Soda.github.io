@@ -48,3 +48,19 @@
     font-weight: 400;
     transition: .5s;
 }
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        padding: 0 20px;
+        top: 10px
+    }
+
+    .navbar .logo {
+        margin-right: 50px;
+    }
+
+    .navbar .links a {
+        display: none;
+    }
+    
+}
