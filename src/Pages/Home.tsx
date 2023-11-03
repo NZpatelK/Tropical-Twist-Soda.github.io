@@ -1,16 +1,30 @@
 import '../Styles/Home.css'
 import NavBar from './NavBar';
 import { SodaData } from '../Data/SodaData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import brand from '../assets/brand.png'
-import left from '../assets/back-button.png'
-import right from '../assets/right.png'
 import down from '../assets/down-arrow.png'
+import swipe from '../assets/swipe.png'
 
 function Home() {
 
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
   const sodaData = SodaData;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    // Add a resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleScrollOnWheel = (e: any) => {
     if (e.deltaY < 0) {
@@ -44,12 +58,6 @@ function Home() {
     <div className='homePage' style={{ '--bgColour': sodaData[index].bgColour } as never} onWheel={handleScrollOnWheel}>
       <NavBar />
 
-      {/* <div className='switchBtn'>
-        <div className='leftBtn' onClick={() => handleSwitch("left")}> <img src={left} alt="" /> </div>
-        <div className='rightBtn' onClick={() => handleSwitch("right")}> <img src={right} alt="" /></div>
-      </div> */}
-
-
       {sodaData.map((soda) => {
         return (
 
@@ -72,12 +80,19 @@ function Home() {
         )
       })}
 
+      {isMobile ?
+        <div className={"swipeIcon " + (index !== 0 && "hidden") }>
+          <h1>Swipe Left for more flavours</h1>
+          <img src={swipe} alt="" />
+        </div>
 
-      <div className="scrolldownIcon">
-        <h1>Scroll down</h1>
-        <h1>for flavours</h1>
-        <img src={down} alt="" />
-      </div>
+
+        : <div className={"scrolldownIcon " + (index !==0 && "hidden") } >
+          <h1>Scroll down</h1>
+          <h1>for more flavours</h1>
+          <img src={down} alt="" />
+        </div>
+      }
 
 
     </div >

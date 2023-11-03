@@ -248,7 +248,7 @@
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 1s ease-in-out;
     animation: scrollDown 1s infinite;
 }
 
@@ -268,7 +268,42 @@
     width: 40px;
 }
 
+/* --------------------------------------------------------------------------------------------------------- */
+/* label scroll down icon */
 
+.swipeIcon {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+.swipeIcon h1 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #ffffff;
+    font-family: poppins, sans-serif;
+}
+
+.swipeIcon img {
+    width: 30px;
+    animation: swipeLeft 1.5s ease-in-out infinite;
+}
+
+.hidden{
+    transform: translateY(100%) translateX(-50%);
+
+    opacity: 0;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------- */
 
 @keyframes scrollDown {
     0% {
@@ -286,6 +321,20 @@
 
 /* --------------------------------------------------------------------------------------------------------- */
 
+@keyframes swipeLeft {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
 /* Tablet */
 
 @media screen and (max-width: 1200px) {
@@ -297,7 +346,7 @@
 
     .sodaProductsDisplay .content {
         width: 80%;
-        margin: 70px 60px;
+        margin: 100px 60px;
     }
 
     .sodaProductsDisplay .content .brandLogo {
