@@ -190,6 +190,7 @@
 .imageContent .sodaProd {
     position: relative;
     top: 10%;
+    left: -1%;
     width: 100%;
     height: 100%;
     transition: all 1s ease-in-out;
@@ -197,7 +198,7 @@
 }
 
 .imageContent .sodaProd img {
-    width: 200px;
+    width:220px;
     object-fit: contain;
     filter: drop-shadow(0px 0px 20px #00000064);
 }
@@ -211,10 +212,10 @@
 
 .sodaImgEnter::before {
     content: '';
-    width: 900px;
-    height: 900px;
+    width: 1000px;
+    height: 1000px;
     position: absolute;
-    top: 0%;
+    top: -2%;
     left: 0%;
     transform: translate(-38%, -30%) scale(1);
     background: var(--sodaBgImg);
@@ -224,10 +225,10 @@
 
 .sodaImgExit::before {
     content: '';
-    width: 900px;
-    height: 900px;
+    width: 1000px;
+    height: 1000px;
     position: absolute;
-    top: 0%;
+    top: -2%;
     left: 0%;
     transform: translate(-38%, -30%) scale(0);
     background: var(--sodaBgImg);
