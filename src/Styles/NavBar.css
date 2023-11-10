@@ -49,6 +49,19 @@
     transition: .5s;
 }
 
+.mobileNav {
+    display: none;
+}
+
+.mobileNav img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     .navbar {
         padding: 0 20px;
@@ -61,6 +74,10 @@
 
     .navbar .links a {
         display: none;
+    }
+
+    .mobileNav {
+        display: block;
     }
     
 }

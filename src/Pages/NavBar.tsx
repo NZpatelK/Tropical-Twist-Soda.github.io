@@ -1,5 +1,6 @@
 import '../Styles/NavBar.css'
 import logo from '../assets/logo 2.png';
+import menu from '../assets/menu.png';
 
 
 function NavBar() {
@@ -10,9 +11,12 @@ function NavBar() {
                 <img src={logo} alt="" />
             </div>
             <div className="links">
-                <a href="#">Our Flavours</a>
-                <a href="#">News</a>
-                <a href="#">About us</a>
+                <a href="#" onClick={() => {alert("This feature is not available.")}}>Our Flavours</a>
+                <a href="#" onClick={() => {alert("This feature is not available.")}}>News</a>
+                <a href="#" onClick={() => {alert("This feature is not available.")}}>About us</a>
+            </div>
+            <div className="mobileNav">
+                <img src={menu} alt="" />
             </div>
 
 

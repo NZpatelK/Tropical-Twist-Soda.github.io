@@ -86,7 +86,7 @@ function Home() {
               <img className='brandLogo' src={brand} alt="" />
               <h1 className='title'>{soda.title}</h1>
               <h3 className='price'>${soda.price} ea</h3>
-              <button>Add To Cart</button>
+              <button onClick={() => {alert("This store not exist and you not able to purchase the soda can")}}>Add To Cart</button>
               <p className='brief'>{soda.breif}</p>
             </div>
 
