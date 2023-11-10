@@ -15,7 +15,7 @@ function NavBar() {
                 <a href="#" onClick={() => {alert("This feature is not available.")}}>News</a>
                 <a href="#" onClick={() => {alert("This feature is not available.")}}>About us</a>
             </div>
-            <div className="mobileNav">
+            <div className="mobileNav"  onClick={() => {alert("This feature is not available.")}}>
                 <img src={menu} alt="" />
             </div>
 
